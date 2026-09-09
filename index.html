@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jass Cloth Care - Professional Garment Care</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Jass Cloth Care offers professional dry cleaning, saree roll polish, washing, steam ironing, and laundry services in Karaikudi, Thanjavur, and Kalaiyarkovil.">
+    <meta name="keywords" content="Jass Cloth Care, Dry Cleaning, Saree Roll Polish, Laundry Services, Karaikudi, Thanjavur, Kalaiyarkovil, Steam Ironing, Carpet Cleaning">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="YOUR_CODE_HERE" />
+    
+    <!-- OpenGraph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jass Cloth Care - Professional Garment Care">
+    <meta property="og:description" content="Professional dry cleaning and saree roll polish services with a 5-day delivery guarantee in Karaikudi, Thanjavur, and Kalaiyarkovil.">
+    <meta property="og:image" content="/logo.jpg">
+    <meta property="og:url" content="https://www.yourdomain.com/">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jass Cloth Care - Professional Garment Care">
+    <meta name="twitter:description" content="Professional dry cleaning and saree roll polish services with a 5-day delivery guarantee in Karaikudi, Thanjavur, and Kalaiyarkovil.">
+    <meta name="twitter:image" content="/logo.jpg">
+
+    <!-- Schema.org LocalBusiness JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "JASS CLOTH CARE",
+      "image": "/logo.jpg",
+      "description": "Dry Cleaning, Saree Roll Polish, Steam Ironing, and Laundry services.",
+      "telephone": ["+919363731836", "+919344631836"],
+      "email": "jassclothcare@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        "Karaikudi",
+        "Thanjavur",
+        "Kalaiyarkovil"
+      ],
+      "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 09:00-18:00",
+      "priceRange": "₹₹",
+      "url": "https://www.yourdomain.com/"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f2b5c',
+                        secondary: '#1e3a8a',
+                        accent: '#0284c7'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for smooth scrolling and animations */
+        html { scroll-behavior: smooth; }
+        .service-card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+    <!-- 1. Top Contact Bar -->
+    <div class="bg-primary text-white text-xs md:text-sm py-2 px-4 flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center space-x-4 mb-2 md:mb-0">
+            <span><i class="fas fa-clock mr-1"></i> 9:00 AM - 6:00 PM</span>
+            <span><i class="fas fa-phone mr-1"></i> +91 93637 31836, +91 93446 31836</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span><i class="fas fa-envelope mr-1"></i> jassclothcare@gmail.com</span>
+            <span class="hidden md:inline"><i class="fas fa-map-marker-alt mr-1"></i> Karaikudi, Thanjavur, Kalaiyarkovil</span>
+        </div>
+    </div>
+
+    <!-- 2. Sticky Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="logo.jpg?v=4" alt="Jass Cloth Care Logo" class="h-20 w-20 md:h-28 md:w-28 object-contain mr-3 mix-blend-multiply" style="filter: brightness(1.05) contrast(1.1);">
+                <div class="flex flex-col">
+                    <h1 class="text-xl md:text-2xl font-bold text-secondary tracking-tight">JASS CLOTH CARE</h1>
+                    <span class="text-[10px] md:text-xs text-accent font-semibold uppercase tracking-wider">Dry Cleaning & Saree Roll Polish</span>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-secondary">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-6 font-medium text-gray-700">
+                <a href="#home" class="hover:text-accent transition">Home</a>
+                <a href="#about" class="hover:text-accent transition">About Us</a>
+                <a href="#services" class="hover:text-accent transition">Services</a>
+                <a href="#branches" class="hover:text-accent transition">Branches</a>
+                <a href="#contact" class="hover:text-accent transition">Contact</a>
+                <a href="#book" class="bg-accent hover:bg-secondary text-white px-5 py-2 rounded-full shadow-lg transition">Book Pickup</a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Nav (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 flex flex-col space-y-3 font-medium text-gray-700 shadow-inner">
+            <a href="#home" class="hover:text-accent">Home</a>
+            <a href="#about" class="hover:text-accent">About Us</a>
+            <a href="#services" class="hover:text-accent">Services</a>
+            <a href="#branches" class="hover:text-accent">Branches</a>
+            <a href="#contact" class="hover:text-accent">Contact</a>
+            <a href="#book" class="bg-accent text-white text-center py-2 rounded-md shadow-md">Book Pickup</a>
+        </div>
+    </header>
+
+    <!-- 3. Hero Section -->
+    <section id="home" class="relative bg-gray-100 overflow-hidden">
+        <div class="absolute inset-0 bg-primary opacity-90 z-0"></div>
+        <div class="container mx-auto px-4 py-20 md:py-32 relative z-10 flex flex-col items-center text-center">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
+                Professional Garment Care <br> at Your Doorstep
+            </h2>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
+                Experience premium dry cleaning, washing, and laundry services. We handle your clothes with care and deliver them fresh.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <span class="bg-white/20 text-white border border-white/40 px-4 py-2 rounded-full font-semibold flex items-center shadow-sm backdrop-blur-sm">
+                    <i class="fas fa-shipping-fast text-accent mr-2"></i> 5 Days Delivery Cycle (5 நாட்களுக்குள் டெலிவரி)
+                </span>
+                <span class="bg-white/20 text-white border border-white/40 px-4 py-2 rounded-full font-semibold flex items-center shadow-sm backdrop-blur-sm">
+                    <i class="fas fa-bolt text-yellow-400 mr-2"></i> Express Delivery Available
+                </span>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#book" class="bg-accent hover:bg-white hover:text-accent text-white text-lg font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 border-2 border-accent">
+                    Schedule a Pickup
+                </a>
+                <a href="https://wa.me/919363731836" target="_blank" class="bg-green-500 hover:bg-green-600 text-white text-lg font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. About Us Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <div class="bg-blue-50 rounded-2xl p-8 shadow-inner relative h-80 flex items-center justify-center border-4 border-white shadow-xl">
+                        <i class="fas fa-tshirt text-9xl text-accent opacity-20 absolute"></i>
+                        <div class="text-center z-10 relative bg-white/80 p-6 rounded-xl backdrop-blur-sm border shadow-sm">
+                            <span class="block text-5xl font-black text-secondary mb-2">10+</span>
+                            <span class="block text-xl font-bold text-gray-700">Years of Excellence</span>
+                            <span class="block text-sm text-gray-500 mt-1">Established 2016</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="inline-block px-3 py-1 bg-blue-100 text-secondary font-bold text-sm rounded-full mb-4">ABOUT US</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Trusted Fabric Care Experts Since 2016</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        At Jass Cloth Care, we understand the value of your garments. With over a decade of experience, we provide top-notch professional fabric-safe cleaning that ensures your clothes look new, longer.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        From everyday laundry to delicate Saree Roll Polishing, our expert team guarantees reliable stain removal, hygienic processing, and the ultimate door-to-door convenience for our customers in Karaikudi, Thanjavur, and Kalaiyarkovil.
+                    </p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-700 font-medium"><i class="fas fa-check-circle text-accent mr-3 text-lg"></i> Professional Fabric-Safe Cleaning</li>
+                        <li class="flex items-center text-gray-700 font-medium"><i class="fas fa-check-circle text-accent mr-3 text-lg"></i> Reliable Stain Removal</li>
+                        <li class="flex items-center text-gray-700 font-medium"><i class="fas fa-check-circle text-accent mr-3 text-lg"></i> Door-to-Door Convenience</li>
+                        <li class="flex items-center text-gray-700 font-medium"><i class="fas fa-check-circle text-accent mr-3 text-lg"></i> Fast 5-Day Delivery Cycle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Services Grid -->
+    <section id="services" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block px-3 py-1 bg-blue-100 text-secondary font-bold text-sm rounded-full mb-4">OUR SERVICES</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What We Do Best</h2>
+                <p class="text-gray-600">Comprehensive cleaning solutions tailored for every type of fabric and garment in your home.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 transition duration-300 text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Dry Cleaning</h3>
+                    <p class="text-gray-600 text-sm">Gentle and effective solvent cleaning for delicate garments and suits.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 transition duration-300 text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-pink-100 text-pink-600 text-xs font-bold px-2 py-1 rounded-bl-lg">Specialty</div>
+                    <div class="w-16 h-16 bg-pink-50 text-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Saree Roll Polish</h3>
+                    <p class="text-gray-600 text-sm">Expert rolling and polishing to restore the crispness and shine of your silk sarees.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 transition duration-300 text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Washing & Laundry</h3>
+                    <p class="text-gray-600 text-sm">Premium wash with high-quality detergents for your everyday clothes.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 transition duration-300 text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Steam Ironing</h3>
+                    <p class="text-gray-600 text-sm">Professional crease-free steam pressing for a crisp, polished look.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 transition duration-300 text-center">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-border-all"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Carpet Cleaning</h3>
+                    <p class="text-gray-600 text-sm">Deep extraction cleaning to remove dust, stains, and allergens.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 transition duration-300 text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Blanket Cleaning</h3>
+                    <p class="text-gray-600 text-sm">Hygienic washing and drying for heavy blankets and comforters.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 transition duration-300 text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-person-booth"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Curtain Cleaning</h3>
+                    <p class="text-gray-600 text-sm">Careful washing or dry cleaning for drapes and blinds.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 transition duration-300 text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Wash & Fold</h3>
+                    <p class="text-gray-600 text-sm">Convenient regular laundry service, returned neatly folded.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Branch Locations -->
+    <section id="branches" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block px-3 py-1 bg-blue-100 text-secondary font-bold text-sm rounded-full mb-4">OUR LOCATIONS</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Find Us Near You</h2>
+                <p class="text-gray-600">We proudly serve multiple areas with our extensive network of branches.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Karaikudi -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-accent mr-3"></i>
+                        <h3 class="text-2xl font-bold text-secondary">Karaikudi</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">Elangudi to Alangudi Main Rd</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">Keeranipatti</span>
+                                <span class="text-sm text-gray-500">Kallal Main Rd</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">Kalanivasal</span>
+                                <span class="text-sm text-gray-500">Opp. Amma Poonga</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">Devakottai Rastha</span>
+                                <span class="text-sm text-gray-500">Little Rose Complex</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">Anadha Nagar</span>
+                                <span class="text-sm text-gray-500">120ft Rd, Kannaki St</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Thanjavur -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-accent mr-3"></i>
+                        <h3 class="text-2xl font-bold text-secondary">Thanjavur</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">Mathakottai Bypass</span>
+                                <span class="text-sm text-gray-500">PWD Nagar</span>
+                            </div>
+                        </li>
+
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">Vallam</span>
+                                <span class="text-sm text-gray-500">Near Prist University</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">M.C Road</span>
+                                <span class="text-sm text-gray-500">Behind IOB Bank</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kalaiyarkovil -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-accent mr-3"></i>
+                        <h3 class="text-2xl font-bold text-secondary">Kalaiyarkovil</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">Pothigai Nagar</span>
+                                <span class="text-sm text-gray-500">Thondi Rd</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-store text-gray-400 mt-1 mr-3"></i>
+                            <div>
+                                <span class="block font-semibold text-gray-800">Kalaiyarkovil</span>
+                                <span class="text-sm text-gray-500">Pallithammam Road</span>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-8 bg-blue-100 p-4 rounded-lg">
+                        <h4 class="font-bold text-secondary mb-2">Need Doorstep Pickup?</h4>
+                        <p class="text-sm text-gray-700 mb-3">We cover surrounding areas as well. Call us to confirm your location.</p>
+                        <a href="tel:+919363731836" class="text-accent font-bold hover:underline"><i class="fas fa-phone mr-1"></i> +91 93637 31836</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Pickup Booking Form -->
+    <section id="book" class="py-16 md:py-24 bg-primary text-white relative">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9IiMxZTNhOGEiIGZpbGwtb3BhY2l0eT0iMC40Ii8+Cjwvc3ZnPg==')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row text-gray-800">
+                
+                <div class="w-full md:w-5/12 bg-secondary text-white p-8 flex flex-col justify-center">
+                    <h3 class="text-3xl font-bold mb-4">Book a Pickup</h3>
+                    <p class="text-blue-200 mb-8">Schedule your laundry pickup in seconds. Fill out the form, and our team will get back to you shortly.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 text-xl text-accent mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold">Service Coverage</h4>
+                                <p class="text-sm text-blue-200">Karaikudi, Thanjavur, Kalaiyarkovil</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 text-xl text-accent mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold">Direct Call</h4>
+                                <p class="text-sm text-blue-200">+91 93637 31836</p>
+                                <p class="text-sm text-blue-200">+91 93446 31836</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-clock mt-1 text-xl text-accent mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold">Working Hours</h4>
+                                <p class="text-sm text-blue-200">9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-7/12 p-8">
+                    <form id="bookingForm" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <input type="text" name="Name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+                                <input type="tel" name="Mobile" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">City / Location</label>
+                                <select name="Location" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition bg-white">
+                                    <option value="" disabled selected>Select your city</option>
+                                    <option value="Karaikudi">Karaikudi</option>
+                                    <option value="Thanjavur">Thanjavur</option>
+                                    <option value="Kalaiyarkovil">Kalaiyarkovil</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address (Optional)</label>
+                                <input type="email" name="Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Service Required</label>
+                                <select name="Service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition bg-white">
+                                    <option value="Dry Cleaning">Dry Cleaning</option>
+                                    <option value="Saree Roll Polish">Saree Roll Polish</option>
+                                    <option value="Washing & Laundry">Washing & Laundry</option>
+                                    <option value="Steam Ironing">Steam Ironing</option>
+                                    <option value="Carpet/Blanket Cleaning">Carpet / Blanket Cleaning</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Time Slot</label>
+                                <select name="TimeSlot" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition bg-white">
+                                    <option value="Morning (9AM - 1PM)">Morning (9 AM - 1 PM)</option>
+                                    <option value="Afternoon (1PM - 4PM)">Afternoon (1 PM - 4 PM)</option>
+                                    <option value="Evening (4PM - 6PM)">Evening (4 PM - 6 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Pickup Address & Landmark</label>
+                            <textarea name="Address" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-accent hover:bg-secondary text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-accent">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="bg-white p-1 rounded-lg inline-block">
+                            <img src="logo.jpg?v=4" alt="Jass Cloth Care Logo" class="h-24 w-24 object-contain mix-blend-multiply" style="filter: brightness(1.05) contrast(1.1);">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white leading-tight">JASS CLOTH CARE</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Professional garment care services across Karaikudi, Thanjavur, and Kalaiyarkovil. Delivering freshness and quality since 2016.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-accent transition"><i class="fas fa-chevron-right text-xs mr-2"></i> Home</a></li>
+                        <li><a href="#about" class="hover:text-accent transition"><i class="fas fa-chevron-right text-xs mr-2"></i> About Us</a></li>
+                        <li><a href="#services" class="hover:text-accent transition"><i class="fas fa-chevron-right text-xs mr-2"></i> Services</a></li>
+                        <li><a href="#branches" class="hover:text-accent transition"><i class="fas fa-chevron-right text-xs mr-2"></i> Branches</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Our Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-check text-accent text-xs mr-2"></i> Dry Cleaning</li>
+                        <li><i class="fas fa-check text-accent text-xs mr-2"></i> Saree Roll Polish</li>
+                        <li><i class="fas fa-check text-accent text-xs mr-2"></i> Wash & Fold</li>
+                        <li><i class="fas fa-check text-accent text-xs mr-2"></i> Steam Ironing</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-accent"></i>
+                            <div>
+                                <a href="tel:+919363731836" class="hover:text-white">+91 93637 31836</a><br>
+                                <a href="tel:+919344631836" class="hover:text-white">+91 93446 31836</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
+                            <a href="mailto:jassclothcare@gmail.com" class="hover:text-white break-all">jassclothcare@gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-accent"></i>
+                            <span>9:00 AM - 6:00 PM (Daily)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 Jass Cloth Care. All Rights Reserved.</p>
+                <p class="mt-2">Guarantee: 5 Days Delivery Cycle</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919363731836" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition duration-300 z-50 flex items-center justify-center animate-bounce" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+        
+        // Close menu when clicking a link
+        var links = document.querySelectorAll('#mobile-menu a');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // WhatsApp Form Submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.querySelector('input[name="Name"]').value;
+            const mobile = document.querySelector('input[name="Mobile"]').value;
+            const location = document.querySelector('select[name="Location"]').value;
+            const email = document.querySelector('input[name="Email"]').value;
+            const service = document.querySelector('select[name="Service"]').value;
+            const timeSlot = document.querySelector('select[name="TimeSlot"]').value;
+            const address = document.querySelector('textarea[name="Address"]').value;
+            
+            let message = `*New Pickup Request*\n\n`;
+            message += `*Name:* ${name}\n`;
+            message += `*Mobile:* ${mobile}\n`;
+            message += `*City:* ${location}\n`;
+            if (email) message += `*Email:* ${email}\n`;
+            message += `*Service:* ${service}\n`;
+            message += `*Time Slot:* ${timeSlot}\n`;
+            message += `*Address:* ${address}`;
+            
+            // Determine phone number based on location
+            let phoneNumber = "919363731836"; // Default / Thanjavur
+            if (location === "Karaikudi" || location === "Kalaiyarkovil") {
+                phoneNumber = "919344631836";
+            }
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        });
+    </script>
+</body>
+</html>
+
